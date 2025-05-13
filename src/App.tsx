@@ -1,9 +1,9 @@
+import { useGetCountryByName } from './hooks/useGetCountryByName';
+
 function App() {
-  return (
-    <div>
-      App
-    </div>
-  )
+  const { loadingCountryData, countryData } = useGetCountryByName('egypt');
+
+  return <div>App</div>;
 }
 
-export default App
+export default App;

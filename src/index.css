@@ -1,1 +1,28 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme inline {
+  --color-primary: #3490dc;
+  --color-secondary: #ffed4a;
+  --color-accent: #38c172;
+  --color-neutral: #f8fafc;
+  --color-base-content: #1a202c;
+  --color-error: #e3342f;
+
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
+}
+
+body {
+  @apply text-base-content bg-gray-100;
+}

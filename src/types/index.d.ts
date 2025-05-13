@@ -96,3 +96,8 @@ interface CountryData {
   capitalInfo: CapitalInfo;
   postalCode: PostalCode;
 }
+
+interface CountryDataProps {
+  loadingCountryData: boolean;
+  countryData: CountryData | undefined;
+}

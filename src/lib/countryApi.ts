@@ -4,14 +4,17 @@ import { toast } from 'react-toastify';
 const BASE_URL = 'https://restcountries.com/v3.1/name/';
 
 export async function getCountryByName(
-  name: string
+  name?: string,
+  signal?: AbortSignal
 ): Promise<CountryData | undefined> {
   try {
     // Make the API request
-    const response = await axios.get<CountryData[]>(`${BASE_URL}${name}`);
+    const response = await axios.get<CountryData[]>(`${BASE_URL}${name}`, {
+      signal
+    });
     // Check if data exists and the array is not empty
     if (response.data && response.data.length > 0) {
-      toast.success(`Country found: ${name}`)
+      toast.success(`Country found: ${name}`);
       return response.data[0]; // Return the first country object
     } else {
       // Handle the case where the country is not found or the API returns an empty array

@@ -3,7 +3,7 @@ import { getCountryByName } from '../lib/countryApi';
 
 export function useGetCountryByName(name?: string) {
   const { isLoading: loadingCountryData, data: countryData } =
-    useQuery<CountryData>({
+    useQuery<CountryData | undefined>({
       queryFn: () => getCountryByName(name!),
       queryKey: ['country', name],
       enabled: !!name

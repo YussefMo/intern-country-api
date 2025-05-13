@@ -12,13 +12,28 @@ function InputForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    setError
   } = useForm<IFormInput>();
   const [searchQuery, setSearchQuery] = useState<string | undefined>(undefined);
 
   const { loadingCountryData, countryData } = useGetCountryByName(searchQuery);
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    if (
+      data.countryName.toLowerCase() === 'israel' ||
+      data.countryName.toLowerCase() === 'isr' ||
+      data.countryName.toLowerCase() === 'isra' ||
+      data.countryName.toLowerCase() === 'israe' ||
+      data.countryName.toLowerCase() === 'state of israel'
+    ) {
+      setSearchQuery(undefined);
+      setError('countryName', {
+        type: 'manual',
+        message: 'Israel is not a country'
+      });
+      return;
+    }
     setSearchQuery(data.countryName);
   };
 

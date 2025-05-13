@@ -14,33 +14,33 @@ function CountryData({ loadingCountryData, countryData }: CountryDataProps) {
       {countryData && (
         <>
           <h1 className="text-3xl font-bold text-red-500">
-            {countryData.name.official}
+            {countryData?.name?.official}
           </h1>
           <img
-            src={countryData.flags.svg}
-            alt={countryData.name.common}
+            src={countryData?.flags?.svg}
+            alt={countryData?.name?.common}
             className="w-40 rounded-md border border-gray-200"
           />
           <div className="w-full text-left">
             <p>
               <span className="font-bold">Region: </span>
-              {countryData.region}
+              {countryData?.region}
             </p>
             <p>
               <span className="font-bold">Capital: </span>
-              {countryData.capital[0]}
+              {countryData?.capital?.[0]}
             </p>
             <p>
               <span className="font-bold">Population: </span>
-              {countryData.population} people
+              {countryData?.population} people
             </p>
             <p>
               <span className="font-bold">Time Zone: </span>
-              {countryData.timezones[0]}
+              {countryData?.timezones[0]}
             </p>
             <p>
               <span className="font-bold">Currency: </span>
-              {Object.entries(countryData.currencies).map(
+              {Object.entries(countryData?.currencies).map(
                 ([code, currency]) => (
                   <span key={code}>
                     {currency.name} ({currency.symbol})

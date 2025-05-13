@@ -27,10 +27,16 @@ function InputForm() {
       data.countryName.toLowerCase() === 'israe' ||
       data.countryName.toLowerCase() === 'state of israel'
     ) {
-      setSearchQuery(undefined);
+      setSearchQuery('palestine');
       setError('countryName', {
         type: 'manual',
         message: 'Israel is not a country'
+      });
+      return;
+    } else if (data.countryName.trim().length <= 2 ) {
+      setError('countryName', {
+        type: 'manual',
+        message: 'you should write at lest 3 char'
       });
       return;
     }

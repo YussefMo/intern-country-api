@@ -25,7 +25,12 @@ function InputForm() {
       data.countryName.toLowerCase() === 'isr' ||
       data.countryName.toLowerCase() === 'isra' ||
       data.countryName.toLowerCase() === 'israe' ||
-      data.countryName.toLowerCase() === 'state of israel'
+      data.countryName.toLowerCase() === 'state of israel' ||
+      data.countryName.toLowerCase() === 'state of israe' ||
+      data.countryName.toLowerCase() === 'state of isra' ||
+      data.countryName.toLowerCase() === 'state of isr' ||
+      data.countryName.toLowerCase() === 'state of is' ||
+      data.countryName.toLowerCase() === 'state of i'
     ) {
       setSearchQuery('palestine');
       setError('countryName', {
